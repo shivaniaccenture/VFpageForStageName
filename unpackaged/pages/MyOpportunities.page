@@ -1,0 +1,22 @@
+<apex:page controller="stageopp">
+    <apex:form >
+        <apex:pageblock title="Stages">
+            <apex:pageblocksection >
+                <apex:selectList value="{!State1}" size="1">
+                    <apex:selectOptions value="{!ones}"/>
+                </apex:selectList> 
+            </apex:pageblocksection>
+            <apex:pageblocksection >
+                <apex:commandButton value="Filter" action="{!filter}"/>
+            </apex:pageblocksection>
+        </apex:pageblock>
+        <apex:pageblock title="Opportunities">
+            <apex:pageblocktable value="{!opps}" var="opp">
+                <apex:column value="{!opp.name}"/>
+                <apex:column value="{!opp.account.name}"/>
+                <apex:column value="{!opp.closedate}"/>
+                <apex:column value="{!opp.probability}"/>
+            </apex:pageblocktable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>
